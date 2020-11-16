@@ -18,7 +18,7 @@ import json
 # In[2]:
 
 
-from flask import Flask, request
+from flask import Flask, request, send_file
 app = Flask(__name__)
 
 
@@ -71,7 +71,10 @@ def gethakka4Audio(targetText, targetFileName):
     # 儲存檔案下來一份到伺服器
     with open(filename, 'wb') as f:
         f.write(response.content)
-    return response.content
+    try:
+    	return send_file('/app/'+filename)
+    except Exception as e:
+        return str(e)
 
 
 # ### 完整國字轉客語語音
