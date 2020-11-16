@@ -1,0 +1,14 @@
+version: '3'
+services:
+  # 客家文字轉語音
+  text2speech:
+    build: ./text2speech/
+    image: docker.pkg.github.com/ziyi-bear/docker-smarthome-hakka-project/text2speech
+    restart: always
+    expose: 
+      - 5000
+    environment:
+      - VIRTUAL_HOST=hakka2speech.smarthome.csie.nuu.edu.tw
+      - LETSENCRYPT_HOST=hakka2speech.smarthome.csie.nuu.edu.tw
+      - LETSENCRYPT_EMAIL=m0724001@gm.nuu.edu.tw
+      - VIRTUAL_PORT=5000
