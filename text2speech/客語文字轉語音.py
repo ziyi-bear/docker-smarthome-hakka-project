@@ -134,5 +134,5 @@ audioFileContent = text2hakkaSpeech('熊熊')
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", debug=True, port=80)
 
